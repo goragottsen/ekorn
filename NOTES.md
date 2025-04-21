@@ -26,27 +26,31 @@ My approach:
         - Adjust styles
 6. Implement and test everything
 
-### Error Handling
+## **Additional Features**
+- Sorting by name
+- Filtering by active status
+
+## **Error Handling**
 - Currently showing "No students found" for empty student array
 - Could be improved by:
   - Adding error boundaries
   - Implementing per-student error handling
   - Adding loading states (if and when fetching data from server)
 
-### Performance Considerations
+## **Performance Considerations**
 - Could memoize expensive calculations (e.g., average score)
 - Could implement pagination or infinite scroll
 
-### Accessibility
+## **Accessibility**
 - Need to add:
   - aria labels
   - Keyboard navigation
 
 ## **Known Limitations**
-- No test coverage because it requires test package
+- No test coverage because it requires installing a test package
 
-## **Assumptions
-- There are no specific requirements for how to determine a “Passed” value, so based on what I read online and remember from my experience, a score is considered passed at 75%. 
+## **Assumptions**
+- There are no specific requirements for how to determine a "Passed" value, so based on what I read online and remember from my experience, a score is considered passed at 75%. 
 Initially, I used the average score to determine pass/fail since we weren’t supposed to add new fields to the Student type. But even with a good average, a student could still fail a subject.
 My solution was to fetch the student by ID, check each of their three scores, and return false if any of them is below 75%.
 

@@ -1,14 +1,14 @@
 <script lang="ts">
-    let { sortStudents, filterStudents, sorted, filtered } = $props();
+    let { sortStudents, filterStudents, sorted, filtered, disabled } = $props();
 </script>
 
 <div class="container">
-<button onclick={sortStudents}>
-    {sorted ? 'Show Default' : 'Sort by Name'}
-</button>
-<button onclick={filterStudents}>
-    {filtered ? 'Show All' : 'Show Active'}
-</button>
+    <button onclick={sortStudents} disabled={disabled}>
+        {sorted ? 'Show Default' : 'Sort by Name'}
+    </button>
+    <button onclick={filterStudents} disabled={disabled}>
+        {filtered ? 'Show All' : 'Show Active'}
+    </button>
 </div>
 
 <style>
@@ -22,8 +22,9 @@
     }
 
     button {
-        background-color: #4B3D47;
-        color: #F7F3ED;
+        min-width: 150px;
+        background-color: var(--color-primary);
+        color: var(--color-white);
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
@@ -31,6 +32,11 @@
     }
 
     button:hover {
-        background-color: #6C5B7B;
+        background-color: var(--color-secondary);
+    }
+
+    button:disabled {
+        background-color: var(--color-disabled);
+        cursor: not-allowed;
     }
 </style>

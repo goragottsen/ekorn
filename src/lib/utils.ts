@@ -2,7 +2,7 @@ import { studentsData, type Scores } from "./data";
 
 export const calculateStudentAge = (birthdate: string): number => {
     if(!birthdate || isNaN(Date.parse(birthdate))) {
-        throw new Error('No valid birthdate provided');
+        return 0;
     }
     const birthDate = new Date(birthdate);
     const today = new Date();
@@ -21,7 +21,7 @@ export const calculateStudentAverageScore = (scores: Scores): number => {
 
 export const getStudentFullName = (firstName: string, lastName: string): string => {
     if(!firstName && !lastName) {
-        throw new Error('No valid name provided');
+        return 'No valid name provided';
     }
     return `${firstName} ${lastName}`;
 }

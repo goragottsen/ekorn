@@ -1,12 +1,7 @@
 <script lang="ts">
   import { getPassedStatusByStudentId } from "../utils";
-    type Student = {
-        id: string;
-        name: string;
-        age: number;
-        averageScore: number;
-        activeLabel: 'Yes' | 'No';
-    };
+    import type { Student } from "../types";
+
     interface Props {
         student: Student;
     }
@@ -18,7 +13,7 @@
     <h2>{student.name}</h2>
     <div class="row">
         <span class="title">Age:</span>
-        <span class="value">{student.age.toString()}</span>
+        <span class="value">{student.age > 0 ? student.age.toString() : 'Invalid Birthdate'}</span>
     </div>
     <div class="row">
         <span class="title">Average Score:</span>
@@ -45,7 +40,7 @@
         box-shadow: 0px 6px 20px rgba(86, 87, 75, 0.14);
         border-radius: 6px;
         padding: 20px;
-        background-color: #FFFFFF;
+        background-color: var(--color-white);
     }
     h2 {
         font-size: 24px;
@@ -63,14 +58,25 @@
         font-family: var(--verdana-font);
         font-weight: 400;
         font-size: 20px;
-        line-height: 100%;
         letter-spacing: -0.04em;
-        color: #6F626B;
+        color: var(--color-secondary);
     }
     .value {
         font-size: 20px;
         font-weight: 700;
-        color: #000000;
+        color: var(--color-black);
+    }
+
+    @media (max-width: 640px) {
+        .card {
+            width: 100%;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        .title, .value {
+            font-size: 16px;
+        }
     }
 
 </style>

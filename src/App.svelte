@@ -4,14 +4,7 @@
   import StudentCard from './lib/components/StudentCard.svelte';
   import StudentsContainer from './lib/components/StudentsContainer.svelte';
   import StudentsToolbar from './lib/components/StudentsToolbar.svelte';
-  
-  type Student = {
-    id: string;
-    name: string;
-    age: number;
-    averageScore: number;
-    activeLabel: 'Yes' | 'No';
-  };
+  import type { Student } from './lib/types';
 
   let students: Student[] = [];
   let error: string | null = null;
@@ -67,7 +60,7 @@
   <!-- The list of students -->
   <StudentsContainer title="Students">
     {#snippet toolbar()}
-      <StudentsToolbar sortStudents={sortStudents} filterStudents={filterStudents} sorted={sorted} filtered={filtered}/>
+      <StudentsToolbar sortStudents={sortStudents} filterStudents={filterStudents} sorted={sorted} filtered={filtered} disabled={error !== null}/>
     {/snippet}
     {#if error}
       <p>{error}</p>
@@ -84,17 +77,29 @@
 
 <style>
   :root {
+      /* Spacing */
       --spacing-medium: 20px;
       --spacing-large: 30px;
       --spacing-xlarge: 40px;
       --spacing-xxlarge: 50px;
+
+      /* Fonts */
       --tahoma-font: 'Tahoma', sans-serif;
       --verdana-font: 'Verdana', sans-serif;
+
+      /* Colors */
+      --color-primary: #4B3D47;
+      --color-secondary: #6F626B;
+      --color-background: #F7F3ED;
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+      --color-disabled: #B0A99F;
   }
 
   main {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    background-color: #F7F3ED;
+    flex-direction: column;
+    background-color: var(--color-background);
   }
 </style>

@@ -5,7 +5,6 @@
     interface Props {
         student: Student;
     }
-
     let { student }: Props = $props();
 </script>
 

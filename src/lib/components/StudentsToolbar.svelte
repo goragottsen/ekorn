@@ -1,5 +1,12 @@
 <script lang="ts">
-    let { sortStudents, filterStudents, sorted, filtered, disabled } = $props();
+    interface Props {
+        sortStudents: () => void;
+        filterStudents: () => void;
+        sorted: boolean;
+        filtered: boolean;
+        disabled: boolean;
+    }
+    let { sortStudents, filterStudents, sorted, filtered, disabled }: Props = $props();
 </script>
 
 <div class="container">

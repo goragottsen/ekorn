@@ -12,8 +12,9 @@
       age: calculateStudentAge(student.birthdate),
       averageScore: calculateStudentAverageScore(student.scores),
       activeLabel: student.isActive ? 'Yes' : 'No',
-    }));
+  }));
 
+  // Sorting and filtering logic
   let sorted: boolean = $state(false);
   let filtered: boolean = $state(false);
   
@@ -26,19 +27,18 @@
         result = result.sort((a, b) => a.name.localeCompare(b.name));
       }
       return result;
-});
+  });
 
   const sortStudents = () => {
-    sorted = !sorted;
+      sorted = !sorted;
   };
-
   const filterStudents = () => {
-    filtered = !filtered;
+      filtered = !filtered;
   };
 </script>
 
 <main>
-  <!-- The list of students -->
+  <!-- The list of students displayed in a grid -->
   <StudentsContainer title="Students">
     {#snippet toolbar()}
       <StudentsToolbar sortStudents={sortStudents} filterStudents={filterStudents} sorted={sorted} filtered={filtered} disabled={updatedStudents?.length === 0}/>

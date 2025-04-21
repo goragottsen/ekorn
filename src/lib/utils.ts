@@ -1,3 +1,10 @@
+/**
+ * Utility functions for student data processing:
+ * - Age calculation from birthdate
+ * - Average score based on scores from student data
+ * - Full name formatting
+ * - Pass/fail status calculation (passing grade - 75%)
+ */
 import { studentsData, type Scores } from "./data";
 
 export const calculateStudentAge = (bdate: string): number => {

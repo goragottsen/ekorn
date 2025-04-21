@@ -61,7 +61,6 @@
     filtered = !filtered;
     updateStudents();
   };
-  console.log(error);
 </script>
 
 <main>

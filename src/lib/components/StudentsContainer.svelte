@@ -38,7 +38,8 @@
         gap: var(--spacing-large);
     }
 
-    @media (max-width: 640px) {
+    /* Tablets and mobile */
+    @media (max-width: 1024px) {
         .container {
             width: 90%;
         }

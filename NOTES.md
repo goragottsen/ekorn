@@ -68,6 +68,6 @@ Web:
 <img width="1764" alt="image" src="https://github.com/user-attachments/assets/640283ed-c2b1-48fc-b3f8-936760771ea9" />
 
 
-Mobile: 
+Mobile:
 <img width="390" alt="image" src="https://github.com/user-attachments/assets/7d8f49aa-49b6-469b-aa6e-6523f1f4feff" />
 

@@ -61,3 +61,13 @@ My solution was to fetch the student by ID, check each of their three scores, an
 - For filtering and sorting, I assumed we want to keep the original data state as is and apply both at the same time.
 
 - I assumed first and last names are already capitalized and didn’t need validation. But in a real-world app, I’d parse and validate every value coming from the data array.
+
+
+## **UI Screenshots**
+Web:
+<img width="1764" alt="image" src="https://github.com/user-attachments/assets/640283ed-c2b1-48fc-b3f8-936760771ea9" />
+
+
+Mobile:
+<img width="390" alt="image" src="https://github.com/user-attachments/assets/7d8f49aa-49b6-469b-aa6e-6523f1f4feff" />
+

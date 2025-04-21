@@ -30,18 +30,18 @@ My approach:
 - Sorting by name
 - Filtering by active status
 
-### Error Handling
+### **Error Handling**
 - Currently showing "No students found" for empty student array
 - Could be improved by:
   - Adding error boundaries
   - Implementing per-student error handling
   - Adding loading states (if and when fetching data from server)
 
-### Performance Considerations
+### **Performance Considerations**
 - Could memoize expensive calculations (e.g., average score)
 - Could implement pagination or infinite scroll
 
-### Accessibility
+### **Accessibility**
 - Need to add:
   - aria labels
   - Keyboard navigation

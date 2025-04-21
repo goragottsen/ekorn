@@ -43,7 +43,7 @@ My approach:
   - Keyboard navigation
 
 ## **Known Limitations**
-- No test coverage because it requires test package
+- No test coverage because it requires installing a test package
 
 ## **Assumptions
 - There are no specific requirements for how to determine a “Passed” value, so based on what I read online and remember from my experience, a score is considered passed at 75%. 

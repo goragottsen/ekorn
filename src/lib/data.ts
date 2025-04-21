@@ -102,7 +102,7 @@ export const studentsData: readonly StudentDataItem[] = [
     id: 8,
     firstName: 'Wednesday',
     lastName: 'Addams',
-    birthdate: '2004-10-13',
+    birthdate: 'gygy',
     scores: {
       math: 89,
       english: 88,

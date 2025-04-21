@@ -1,0 +1,36 @@
+<script lang="ts">
+  let { toolbar, title, children } = $props();
+</script>
+
+<div class="container">
+    {#if title}
+        <h1 class="title">{title}</h1>
+    {/if}
+    {@render toolbar()}
+    <div class="grid">
+        {@render children()}
+    </div>
+</div>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 1024px;
+        margin: 0 auto;
+        height: 100%;
+        color: #4B3D47;
+    }
+
+    h1{
+        font-size: 32px;
+        font-weight: 700;
+        font-family: var(--tahoma-font);
+        margin-top: var(--spacing-xlarge);
+        margin-bottom: var(--spacing-large);
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-large);
+    }
+</style>

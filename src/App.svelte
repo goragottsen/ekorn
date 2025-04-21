@@ -1,8 +1,10 @@
 <script lang="ts">
-  import Hello from './lib/components/Hello.svelte';
-  import DataPreview from './lib/components/DataPreview.svelte';
   import { studentsData } from './lib/data';
-
+  import { calculateStudentAge, calculateStudentAverageScore, getStudentFullName } from './lib/utils';
+  import StudentCard from './lib/components/StudentCard.svelte';
+  import StudentsContainer from './lib/components/StudentsContainer.svelte';
+  import StudentsToolbar from './lib/components/StudentsToolbar.svelte';
+  
   type Student = {
     id: string;
     name: string;
@@ -11,54 +13,89 @@
     activeLabel: 'Yes' | 'No';
   };
 
-  // Replace mock example objects with the actual data from the studentsData array
-  const students: Student[] = [
-    {
-      id: '1',
-      name: 'Mary Example',
-      age: 50,
-      activeLabel: 'Yes',
-      averageScore: 10,
-    },
-    {
-      id: '2',
-      name: 'Jade Test',
-      age: 21,
-      activeLabel: 'No',
-      averageScore: 10,
-    },
-  ];
+  let students: Student[] = [];
+  let error: string | null = null;
+  try {
+    students = studentsData.map((student) => ({
+      id: student.id.toString(),
+      name: getStudentFullName(student.firstName, student.lastName),
+      age: calculateStudentAge(student.birthdate),
+      averageScore: calculateStudentAverageScore(student.scores),
+      activeLabel: student.isActive ? 'Yes' : 'No',
+    }));
+  } catch (e) {
+    console.error('Error processing student data: ', e);
+    error = `Error processing student data:  ${e instanceof Error ? e.message : String(e)}`;
+  }
+
+  let sorted: boolean = false;
+  let filtered: boolean = false;
+  let updatedStudents: Student[] = [...students];
+  const applyFilters = (data: Student[]) => {
+    if (filtered) {
+      return data.filter((student) => student.activeLabel === 'Yes');
+    }
+    return data;
+  };
+
+  const applySort = (data: Student[]) => {
+    if (sorted) {
+      return [...data].sort((a, b) => a.name.localeCompare(b.name));
+    }
+    return data;
+  };
+
+  const updateStudents = () => {
+    let result = [...students];
+    result = applyFilters(result);
+    result = applySort(result);
+    updatedStudents = result;
+  };
+
+  const sortStudents = () => {
+    sorted = !sorted;
+    updateStudents();
+  };
+
+  const filterStudents = () => {
+    filtered = !filtered;
+    updateStudents();
+  };
+  console.log(error);
 </script>
 
 <main>
-  <!-- Delete <Hello> -->
-  <Hello></Hello>
-
   <!-- The list of students -->
-  {#each students as student}
-    <!-- Example content to showcase Svelte — replace with your own template  -->
-    <div>
-      <div>{student.name.toUpperCase()}</div>
-
-      <p>
-        {#if student.age > 25}
-          Mature Student - {student.age} years old
-        {:else}
-          Young Student - {student.age} years old
-        {/if}
-      </p>
-
-      Avg score: {student.averageScore}
-      Active: {student.activeLabel}
-    </div>
-  {/each}
-
-  <!-- Delete <DataPreview> -->
-  <DataPreview value={studentsData}></DataPreview>
+  <StudentsContainer title="Students">
+    {#snippet toolbar()}
+      <StudentsToolbar sortStudents={sortStudents} filterStudents={filterStudents} sorted={sorted} filtered={filtered}/>
+    {/snippet}
+    {#if error}
+      <p>{error}</p>
+    {:else if students.length === 0}
+      <p>No students found</p>
+    {/if}
+    {#each updatedStudents as student}
+      <StudentCard
+        student={student}
+      />
+    {/each}
+  </StudentsContainer>
 </main>
 
 <style>
+  :root {
+      --spacing-medium: 20px;
+      --spacing-large: 30px;
+      --spacing-xlarge: 40px;
+      --spacing-xxlarge: 50px;
+      --tahoma-font: 'Tahoma', sans-serif;
+      --verdana-font: 'Verdana', sans-serif;
+  }
+
   main {
-    padding: 30px;
+    height: 100vh;
+    display: flex;
+    background-color: #F7F3ED;
   }
 </style>

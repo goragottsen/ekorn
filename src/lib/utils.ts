@@ -1,10 +1,10 @@
 import { studentsData, type Scores } from "./data";
 
-export const calculateStudentAge = (birthdate: string): number => {
-    if(!birthdate || isNaN(Date.parse(birthdate))) {
+export const calculateStudentAge = (bdate: string): number => {
+    if(!bdate || isNaN(Date.parse(bdate))) {
         return 0;
     }
-    const birthDate = new Date(birthdate);
+    const birthDate = new Date(bdate);
     const today = new Date();
     return today.getFullYear() - birthDate.getFullYear();
 }

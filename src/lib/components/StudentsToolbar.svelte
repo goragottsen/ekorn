@@ -16,7 +16,7 @@
         margin-bottom: var(--spacing-medium);
         gap: var(--spacing-medium);
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
     }

@@ -6,6 +6,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Spacing */
+  --spacing-medium: 20px;
+  --spacing-large: 30px;
+  --spacing-xlarge: 40px;
+  --spacing-xxlarge: 50px;
+
+  /* Fonts */
+  --tahoma-font: 'Tahoma', sans-serif;
+  --verdana-font: 'Verdana', sans-serif;
+
+  /* Colors */
+  --color-primary: #4B3D47;
+  --color-secondary: #6F626B;
+  --color-background: #F7F3ED;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-disabled: #B0A99F;
 }
 
 *,

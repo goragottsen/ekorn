@@ -3,17 +3,15 @@
 ## **Thought Process**
 
 My approach:
-1. Read the technical task to understand requirements and restrictions
-2. Read Svelte docs to understand concepts and rules
-3. Reviewed the provided codebase and example components including package.json to see installed versions and whether any additional packages were included. I noticed that Svelte v. 5 is a bit different from prev versions, and a lot of older code examples online may be deprecated.
-4. Reviewed the Figma mockup, special attention to:
+1. Reviewed the provided codebase and example components including package.json to see installed versions and whether any additional packages were included. I noticed that Svelte v.5 syntax is different from prev versions, and some of older code examples on stackoverflow may be deprecated.
+2. Reviewed the Figma mockup, special attention to:
     - Font color and sizes
     - Cards layout 
-5. My plan was as follows:
+3. My plan was as follows:
     - Start with students data transformation:
         - Ensure each object in the studentsData array includes all required fields to fill Students data array
         - Create utility functions to help transform the data
-        - Ensure all types are correct
+        - Ensure correct typing and conversion
         - Handle potential errors and add validation
     - UI Implementation:
         - Build a basic page layout and student card components
@@ -22,8 +20,7 @@ My approach:
         - Adjust the style for mobile
     - Filtering and sorting:
         - Add student array transformation logic and props
-        - Add a toolbar component
-        - Adjust styles
+        - Add a toolbar component and style
 6. Implement and test everything
 
 ## **Additional Features**
@@ -64,10 +61,10 @@ My solution was to fetch the student by ID, check each of their three scores, an
 
 
 ## **UI Screenshots**
-Web:
-<img width="1764" alt="image" src="https://github.com/user-attachments/assets/640283ed-c2b1-48fc-b3f8-936760771ea9" />
-
-
-Mobile:
-<img width="390" alt="image" src="https://github.com/user-attachments/assets/7d8f49aa-49b6-469b-aa6e-6523f1f4feff" />
-
+<p>
+    <img width="1764" alt="image" src="https://github.com/user-attachments/assets/640283ed-c2b1-48fc-b3f8-936760771ea9" />
+</p>
+<br>
+<p align="center" marginTop="20px">
+    <img width="390" alt="image" src="https://github.com/user-attachments/assets/7d8f49aa-49b6-469b-aa6e-6523f1f4feff" />
+</p>
